@@ -16,6 +16,7 @@ Uses a predefined character set for encryption and decryption
 
 The program utilizes a predefined encryption key to encode and decode text. The key is as follows:
 
+```
 key = ['f', 't', 'W', 'q', '"', 'j', 'L', '$', '+', '3', '8', 'D', '/', 'Z',
        '>', '_', 'r', 'w', 'V', 'x', 'o', '|', '?', 'i', 'Y', '=', 'z', 'U',
        '5', 'E', '{', 'u', '.', 'b', 'T', ' ', '}', 'H', '*', 'v', ';', 'J',
@@ -23,6 +24,7 @@ key = ['f', 't', 'W', 'q', '"', 'j', 'L', '$', '+', '3', '8', 'D', '/', 'Z',
        'm', '-', 'N', 's', 'X', ':', 'y', ')', 'k', 'I', 'a', 'K', '^', '~',
        '2', '`', '(', ',', '@', '1', 'B', '%', 'h', "'", '7', '[', 'A', '6',
        'd', 'g', ']', 'P', 'R', 'C', 'G', 'c', '9', '#', 'M']
+```
 
 **Installation**
 
