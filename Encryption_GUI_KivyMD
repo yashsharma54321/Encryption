@@ -1,0 +1,83 @@
+from kivymd.app import MDApp
+from kivymd.uix.screen import MDScreen
+from kivymd.uix.textfield import MDTextField
+from kivymd.uix.button import MDRaisedButton
+from kivymd.uix.label import MDLabel
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.core.clipboard import Clipboard
+import string
+
+# Character Mapping for Encryption
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
+key = ['f', 't', 'W', 'q', '"', 'j', 'L', '$', '+', '3', '8', 'D', '/', 'Z',
+       '>', '_', 'r', 'w', 'V', 'x', 'o', '|', '?', 'i', 'Y', '=', 'z', 'U',
+       '5', 'E', '{', 'u', '.', 'b', 'T', ' ', '}', 'H', '*', 'v', ';', 'J',
+       'e', 'l', '&', '0', '<', 'Q', '\\', 'F', '4', 'S', '!', 'O', 'p', 'n',
+       'm', '-', 'N', 's', 'X', ':', 'y', ')', 'k', 'I', 'a', 'K', '^', '~',
+       '2', '`', '(', ',', '@', '1', 'B', '%', 'h', "'", '7', '[', 'A', '6',
+       'd', 'g', ']', 'P', 'R', 'C', 'G', 'c', '9', '#', 'M']
+
+
+class EncryptDecryptApp(MDApp):
+    def build(self):
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Orange"
+
+        # Main Layout
+        screen = MDScreen()
+        layout = MDBoxLayout(orientation="vertical", spacing=15, padding=20)
+
+        # Encrypt Section
+        self.encrypt_label = MDLabel(text="Encrypt Your Text:", font_style="H5", halign="center")
+        self.encrypt_input = MDTextField(hint_text="Enter text to encrypt", mode="rectangle")
+        self.encrypt_output = MDTextField(hint_text="Encrypted text", mode="rectangle", readonly=True)
+        self.encrypt_button = MDRaisedButton(text="Encrypt", on_release=self.encrypt)
+        self.copy_encrypt_button = MDRaisedButton(text="Copy", on_release=self.copy_encrypt)
+        
+        # Decrypt Section
+        self.decrypt_label = MDLabel(text="Decrypt Your Text:", font_style="H5", halign="center")
+        self.decrypt_input = MDTextField(hint_text="Enter text to decrypt", mode="rectangle")
+        self.decrypt_output = MDTextField(hint_text="Decrypted text", mode="rectangle", readonly=True)
+        self.decrypt_button = MDRaisedButton(text="Decrypt", on_release=self.decrypt)
+        self.copy_decrypt_button = MDRaisedButton(text="Copy", on_release=self.copy_decrypt)
+
+        # Add widgets to layout
+        layout.add_widget(self.encrypt_label)
+        layout.add_widget(self.encrypt_input)
+        layout.add_widget(self.encrypt_output)
+        layout.add_widget(self.encrypt_button)
+        layout.add_widget(self.copy_encrypt_button)
+
+        layout.add_widget(self.decrypt_label)
+        layout.add_widget(self.decrypt_input)
+        layout.add_widget(self.decrypt_output)
+        layout.add_widget(self.decrypt_button)
+        layout.add_widget(self.copy_decrypt_button)
+
+        screen.add_widget(layout)
+        return screen
+
+    def encrypt(self, instance):
+        """Encrypt the input text and display the result."""
+        text = self.encrypt_input.text
+        cipher_text = "".join([key[chars.index(letter)] if letter in chars else letter for letter in text])
+        self.encrypt_output.text = cipher_text
+
+    def decrypt(self, instance):
+        """Decrypt the input text and display the result."""
+        text = self.decrypt_input.text
+        plain_text = "".join([chars[key.index(letter)] if letter in key else letter for letter in text])
+        self.decrypt_output.text = plain_text
+
+    def copy_encrypt(self, instance):
+        """Copy the encrypted text to clipboard."""
+        Clipboard.copy(self.encrypt_output.text)
+
+    def copy_decrypt(self, instance):
+        """Copy the decrypted text to clipboard."""
+        Clipboard.copy(self.decrypt_output.text)
+
+
+if __name__ == "__main__":
+    EncryptDecryptApp().run()
