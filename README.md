@@ -1,10 +1,10 @@
-Encryption Program
+# Encryption Program
 
-Overview
+**Overview**
 
 This encryption program converts plaintext into an encrypted format that can only be decrypted using a specific key. The encryption algorithm ensures that only those who possess the exact key can successfully retrieve the original message.
 
-Features
+**Features**
 
 Secure encryption of plaintext
 
@@ -12,7 +12,7 @@ Decryption only possible with a specific key
 
 Uses a predefined character set for encryption and decryption
 
-Encryption Key
+**Encryption Key**
 
 The program utilizes a predefined encryption key to encode and decode text. The key is as follows:
 
@@ -24,7 +24,7 @@ key = ['f', 't', 'W', 'q', '"', 'j', 'L', '$', '+', '3', '8', 'D', '/', 'Z',
        '2', '`', '(', ',', '@', '1', 'B', '%', 'h', "'", '7', '[', 'A', '6',
        'd', 'g', ']', 'P', 'R', 'C', 'G', 'c', '9', '#', 'M']
 
-Installation
+**Installation**
 
 Clone the repository:
 
@@ -41,7 +41,7 @@ Install required dependencies:
 pip install -r requirements.txt
 ```
 
-Usage
+**Usage**
 
 Encrypting Text
 
@@ -63,7 +63,7 @@ python decrypt.py "YourEncryptedMessage"
 
 Only the correct key will allow successful decryption.
 
-Example
+**Example**
 
 ```
 $ python encrypt.py "Hello World!"
@@ -73,15 +73,15 @@ $ python decrypt.py "@c9a %UjRfT"
 Decrypted: Hello World!
 ```
 
-License
+**License**
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contributing
+**Contributing**
 
 Feel free to submit pull requests or report issues in the repository.
 
-Author
+**Author**
 
 Yash Sharma
 
