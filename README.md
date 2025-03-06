@@ -28,14 +28,18 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/encryption-program.git
+```
+git clone https://github.com/yashsharma54321/Encryption.git
 cd encryption-program
+```
 
 Ensure you have Python installed (version 3.x recommended).
 
 Install required dependencies:
 
+```
 pip install -r requirements.txt
+```
 
 Usage
 
@@ -43,7 +47,9 @@ Encrypting Text
 
 To encrypt text, run the encryption script with the plaintext input:
 
+```
 python encrypt.py "Your message here"
+```
 
 This will output the encrypted text.
 
@@ -51,17 +57,21 @@ Decrypting Text
 
 To decrypt, use the decryption script with the encrypted text:
 
+```
 python decrypt.py "YourEncryptedMessage"
+```
 
 Only the correct key will allow successful decryption.
 
 Example
 
+```
 $ python encrypt.py "Hello World!"
 Encrypted: @c9a %UjRfT
 
 $ python decrypt.py "@c9a %UjRfT"
 Decrypted: Hello World!
+```
 
 License
 
